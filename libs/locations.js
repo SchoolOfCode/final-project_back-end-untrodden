@@ -48,4 +48,4 @@ const locations = [
     }
 ]
 
-export default locations;
+export default locations

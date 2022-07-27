@@ -18,7 +18,7 @@ router.get("/:id", async function (req, res) {
     res.json({ success: true, payload: data});
   });
 
-  router.delete('/:id', function (req, res) {
+  router.delete('/:id', async function (req, res) {
     let locationId = req.params.id;
     let data = await deleteLocationById(locationId);
     res.send('Deleted Successsfully');
