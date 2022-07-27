@@ -59,4 +59,17 @@ export async function getAllLocationsOnlyTrue() {
   }
 
   return newLocationsArray;
+
+}
+
+export async function getLocationById(id) {
+  const response = await pool.query(`SELECT * FROM locations WHERE location_id = $1`, [
+    id,
+  ]);
+  return response.rows;
+}
+
+
+export async function deleteLocationById(id) {
+const response = await pool.query(`DELETE FROM locations WHERE location_id = $1`, [id]);
 }
