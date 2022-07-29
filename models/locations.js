@@ -66,7 +66,34 @@ export async function getLocationById(id) {
   const response = await db.query(`SELECT * FROM locations WHERE location_id = $1`, [
     id,
   ]);
-  return response.rows;
+
+  const locationsArray = response.rows;
+  const newLocationsArray = [];
+
+  for (let i = 0; i < locationsArray.length; i++) {
+    const location = locationsArray[i];
+    
+    const categories = []
+    Object.keys(location).forEach(key => {
+      if (key.startsWith('category_') && location[key] === true) {categories.push(key)}
+    });
+    location.categories = categories;
+
+    const amenities = []
+    Object.keys(location).forEach(key => {
+      if (key.startsWith('amenities_') && location[key] === true) {amenities.push(key)}
+    });
+    location.amenities = amenities;
+
+
+    Object.keys(location).forEach(key => {
+      if (key.startsWith('category_') || key.startsWith('amenities_')) {delete location[key]};
+    });
+
+    newLocationsArray.push(location);
+  }
+
+  return newLocationsArray;
 }
 
 
