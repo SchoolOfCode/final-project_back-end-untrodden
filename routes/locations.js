@@ -1,5 +1,5 @@
 import express from "express";
-import { getAllLocationsOnlyTrue, getAllLocations } from "../models/locations.js";
+import { getAllLocationsOnlyTrue, getAllLocations, getLocationById } from "../models/locations.js";
 
 const router = express.Router();
 
@@ -12,13 +12,13 @@ router.get("/", async function (req, res, next) {
 export default router;
 
 
-router.get("/:id", async function (req, res) {
+router.get("/location/:id", async function (req, res) {
     let locationId = req.params.id;
     let data = await getLocationById(locationId);
     res.json({ success: true, payload: data});
   });
 
-  router.delete('/:id', async function (req, res) {
+  router.delete('/location/:id', async function (req, res) {
     let locationId = req.params.id;
     let data = await deleteLocationById(locationId);
     res.send('Deleted Successsfully');
