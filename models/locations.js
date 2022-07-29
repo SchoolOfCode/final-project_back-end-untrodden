@@ -191,7 +191,9 @@ export async function postNewLocation(newLocation) {
     ${newLocation.latitude},
     ${newLocation.longitude}
   ) RETURNING *;`;
+
   console.log(sqlString);
+  
   const response = await db.query(sqlString, [newLocation.location_name, newLocation.street, newLocation.town, newLocation.region, newLocation.postcode, newLocation.location_description, newLocation.image_url]);
   return response.rows;
 }
