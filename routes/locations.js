@@ -1,5 +1,5 @@
 import express from "express";
-import { getAllLocationsOnlyTrue, getAllLocations } from "../models/locations.js";
+import { getAllLocationsOnlyTrue, getAllLocations, getLocationById } from "../models/locations.js";
 
 const router = express.Router();
 
