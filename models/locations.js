@@ -71,5 +71,5 @@ export async function getLocationById(id) {
 
 
 export async function deleteLocationById(id) {
-const response = await pool.query(`DELETE FROM locations WHERE location_id = $1`, [id]);
+const response = await db.query(`DELETE FROM locations WHERE location_id = $1`, [id]);
 }
