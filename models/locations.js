@@ -63,7 +63,7 @@ export async function getAllLocationsOnlyTrue() {
 }
 
 export async function getLocationById(id) {
-  const response = await pool.query(`SELECT * FROM locations WHERE location_id = $1`, [
+  const response = await db.query(`SELECT * FROM locations WHERE location_id = $1`, [
     id,
   ]);
   return response.rows;
