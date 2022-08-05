@@ -1,5 +1,5 @@
 import express from "express";
-import { getAllLocationsOnlyTrue, getAllLocations } from "../models/locations.js";
+import { getAllLocationsOnlyTrue, getAllLocations, getLocationById, postNewLocation } from "../models/locations.js";
 
 const router = express.Router();
 
@@ -9,17 +9,23 @@ router.get("/", async function (req, res, next) {
     res.json({ success: true, payload: data });
 });
 
-export default router;
-
-
 router.get("/:id", async function (req, res) {
-    let locationId = req.params.id;
-    let data = await getLocationById(locationId);
-    res.json({ success: true, payload: data});
-  });
-
-  router.delete('/:id', async function (req, res) {
-    let locationId = req.params.id;
-    let data = await deleteLocationById(locationId);
-    res.send('Deleted Successsfully');
+  let locationId = req.params.id;
+  let data = await getLocationById(locationId);
+  res.json({ success: true, payload: data});
 });
+
+router.post("/", async function(req, res, next) {
+  const newLocation = req.body; // 'body' will be the location object, e.g. body.latitude
+  console.log(newLocation);
+  const data = await postNewLocation(newLocation);
+  res.json({ success: true, payload: data});
+})
+
+router.delete('/:id', async function (req, res) {
+  let locationId = req.params.id;
+  let data = await deleteLocationById(locationId);
+  res.send('Deleted Successsfully');
+});
+
+export default router;
