@@ -17,12 +17,12 @@ const expectedLocation = {
 }
 
 const testLocation = {
-    location_name: "Symonds Yat",
-    street: "",
-    town: "Symonds Yat",
-    region: "West Midlands",
-    postcode: "HR9",
-    location_description: "Symonds Yat is a village in the Wye Valley and a popular tourist destination, straddling the River Wye in the English county of Herefordshire, close to the Gloucestershire border. It is within a few miles of Monmouthshire and the Welsh border.",
+    location_name: "Test Name 123 !'` ",
+    street: "Test Street 123 !'` ",
+    town: "Test Town 123 !'` ",
+    region: "Test Region 123 !'` ",
+    postcode: "Test Postcode 123 !'` ",
+    location_description: "Test Postcode 123 !'` Test Postcode 123 !'` Test Postcode 123 !'` Test Postcode 123 !'` Test Postcode 123 !'` Test Postcode 123 !'` Test Postcode 123 !'` Test Postcode 123 !'` Test Postcode 123 !'` Test Postcode 123 !'` Test Postcode 123 !'` Test Postcode 123 !'` Test Postcode 123 !'` Test Postcode 123 !'` Test Postcode 123 !'` Test Postcode 123 !'` Test Postcode 123 !'` ",
     category_seaside: false,
     category_castles: false,
     category_caves: false,
@@ -60,9 +60,9 @@ const testLocation = {
     amenities_accommodation: true,
     amenities_wifi: true,
     image_url: "https://media-cdn.tripadvisor.com/media/photo-s/0f/36/11/1a/photo3jpg.jpg",
-    latitude: 51.84645761540501,
-    longitude: -2.6461539072289497
-}
+    latitude: 51.235323,
+    longitude: -2.2483279
+};
 
 describe("GET /locations", () => {
     test(`
@@ -119,37 +119,12 @@ describe("GET /locations/:id", () => {
 
 describe("POST /locations", () => {
     test(`
-        Sends a POST request to /locations
-        Checks if the response's HTTP status code is 200
+        Sends a POST request to /locations where body = location (i.e. body: {location_id: 1, ... })
+        Checks if the response's HTTP status code is 201
         Checks if the response's body is an object with the structure: { success: true, payload: [{ location }] }
         Checks if the location object has the structure expectedLocation
         `, async () => {
-            const response = await request(app).get("/locations/1").expect(200);
-            expect(response.body).toStrictEqual({ success: true, payload: expect.any(Array) });
-            expect(response.body.payload.length).toBe(1);
-            expect(response.body.payload[0]).toStrictEqual(expectedLocation);
-        }
-    );
-
-    test(`
-        Sends a GET request to /locations/10000
-        Checks if the response's HTTP status code is 404
-        Checks if the response's body is an object with the structure: { message: "No location found with that id." }
-        `, async () => {
-            const response = await request(app).get("/locations/10000").expect(404);
-            expect(response.body).toStrictEqual({ message: expect.any(String) });
-            expect(response.body.message).toBe("No location found with that id.");
-        }
-    );
-
-    test(`
-        Sends a GET request to /locations/a
-        Checks if the response's HTTP status code is 400
-        Checks if the response's body is an object with the structure: { message: "Endpoint must be an integer." }
-        `, async () => {
-            const response = await request(app).get("/locations/a").expect(400);
-            expect(response.body).toStrictEqual({ message: expect.any(String) });
-            expect(response.body.message).toBe("Endpoint must be an integer.");
+            const response = await request(app).post("/locations").send(testLocation).expect(201);
         }
     );
 })

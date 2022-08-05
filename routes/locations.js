@@ -29,7 +29,7 @@ router.post("/", async function(req, res, next) {
   const newLocation = req.body; // 'body' will be the location object, e.g. body.latitude
   console.log(newLocation);
   const data = await postNewLocation(newLocation);
-  res.json({ success: true, payload: data});
+  res.status(201).json({ success: true, payload: data});
 })
 
 router.delete('/:id', async function (req, res) {
