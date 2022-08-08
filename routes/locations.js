@@ -11,15 +11,25 @@ router.get("/", async function (req, res, next) {
 
 router.get("/:id", async function (req, res) {
   let locationId = req.params.id;
+  if (!Number.isInteger(Number(locationId))) {
+    res.status(400).json({ message: "Endpoint must be an integer." });
+    return;
+  }
+
   let data = await getLocationById(locationId);
-  res.json({ success: true, payload: data});
+
+  if (data.length === 0) {
+    res.status(404).json({ message: "No location found with that id." });
+  } else {
+    res.json({ success: true, payload: data});
+  }
 });
 
 router.post("/", async function(req, res, next) {
   const newLocation = req.body; // 'body' will be the location object, e.g. body.latitude
   console.log(newLocation);
   const data = await postNewLocation(newLocation);
-  res.json({ success: true, payload: data});
+  res.status(201).json({ success: true, payload: data});
 })
 
 router.delete('/:id', async function (req, res) {
