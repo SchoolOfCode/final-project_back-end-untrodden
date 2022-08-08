@@ -1,0 +1,108 @@
+import db from "../../connection.js";
+import locations from "../../../libs/locations.js";
+
+async function populateTable() {
+  for (let i = 0; i < locations.length; i++) {
+    let sqlString = `INSERT INTO locations (
+      location_name,
+      street,
+      town,
+      region,
+      postcode,
+      location_description,
+      category_seaside,
+      category_castles,
+      category_caves,
+      category_peaceful,
+      category_hiking,
+      category_hills,
+      category_historic,
+      category_secluded,
+      category_casual,
+      category_lakes,
+      category_busy,
+      category_woods,
+      amenities_parking,
+      amenities_food,
+      amenities_family,
+      amenities_changing_facilities,
+      amenities_disability_access,
+      amenities_peaceful,
+      amenities_electric_charging,
+      amenities_no_restaurants,
+      amenities_museums,
+      amenities_beach,
+      amenities_hiking,
+      amenities_pet_friendly,
+      amenities_forests,
+      amenities_lots_of_wildlife,
+      amenities_watersports,
+      amenities_shopping,
+      amenities_bodies_of_water,
+      amenities_camping,
+      amenities_mountains,
+      amenities_hearing_loop,
+      amenities_public_transport_good,
+      amenities_public_transport_bad,
+      amenities_accommodation,
+      amenities_wifi,
+      image_url,
+      latitude,
+      longitude
+    ) 
+    VALUES (
+      $1,
+      $2,
+      $3,
+      $4,
+      $5,
+      $6,
+      ${locations[i].category_seaside},
+      ${locations[i].category_castles},
+      ${locations[i].category_caves},
+      ${locations[i].category_peaceful},
+      ${locations[i].category_hiking},
+      ${locations[i].category_hills},
+      ${locations[i].category_historic},
+      ${locations[i].category_secluded},
+      ${locations[i].category_casual},
+      ${locations[i].category_lakes},
+      ${locations[i].category_busy},
+      ${locations[i].category_woods},
+      ${locations[i].amenities_parking},
+      ${locations[i].amenities_food},
+      ${locations[i].amenities_family},
+      ${locations[i].amenities_changing_facilities},
+      ${locations[i].amenities_disability_access},
+      ${locations[i].amenities_peaceful},
+      ${locations[i].amenities_electric_charging},
+      ${locations[i].amenities_no_restaurants},
+      ${locations[i].amenities_museums},
+      ${locations[i].amenities_beach},
+      ${locations[i].amenities_hiking},
+      ${locations[i].amenities_pet_friendly},
+      ${locations[i].amenities_forests},
+      ${locations[i].amenities_lots_of_wildlife},
+      ${locations[i].amenities_watersports},
+      ${locations[i].amenities_shopping},
+      ${locations[i].amenities_bodies_of_water},
+      ${locations[i].amenities_camping},
+      ${locations[i].amenities_mountains},
+      ${locations[i].amenities_hearing_loop},
+      ${locations[i].amenities_public_transport_good},
+      ${locations[i].amenities_public_transport_bad},
+      ${locations[i].amenities_accommodation},
+      ${locations[i].amenities_wifi},
+      $7,
+      ${locations[i].latitude},
+      ${locations[i].longitude}
+    ) RETURNING *;`;
+
+    const response = await db.query(sqlString, [locations[i].location_name, locations[i].street, locations[i].town, locations[i].region, locations[i].postcode, locations[i].location_description, locations[i].image_url]);
+  
+    console.log(response.rows);
+  }
+  db.end();
+}
+
+populateTable();
