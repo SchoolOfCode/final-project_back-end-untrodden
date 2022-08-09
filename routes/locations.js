@@ -35,8 +35,8 @@ router.post("/", async function(req, res, next) {
 router.put("/:id", async function (req, res) {
   let locationId = Number(req.params.id);
   const updatedLocation = req.body; // 'body' will be the location object, e.g. body.latitude
-  let data = await putLocationById(locationId, testLocationForPut);
-  res.send('Updated Successsfully');
+  let data = await putLocationById(locationId, updatedLocation);
+  res.json({ success: true, payload: data});
 });
 
 const testLocationForPut = {
