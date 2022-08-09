@@ -48,7 +48,8 @@ async function populateTable() {
       amenities_wifi,
       image_url,
       latitude,
-      longitude
+      longitude,
+      user_email
     ) 
     VALUES (
       $1,
@@ -95,10 +96,11 @@ async function populateTable() {
       ${locations[i].amenities_wifi},
       $7,
       ${locations[i].latitude},
-      ${locations[i].longitude}
+      ${locations[i].longitude},
+      $8
     ) RETURNING *;`;
 
-    const response = await db.query(sqlString, [locations[i].location_name, locations[i].street, locations[i].town, locations[i].region, locations[i].postcode, locations[i].location_description, locations[i].image_url]);
+    const response = await db.query(sqlString, [locations[i].location_name, locations[i].street, locations[i].town, locations[i].region, locations[i].postcode, locations[i].location_description, locations[i].image_url, locations[i].user_email]) ;
   
     console.log(response.rows);
   }

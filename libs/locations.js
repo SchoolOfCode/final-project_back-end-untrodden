@@ -44,7 +44,8 @@ const locations = [
         amenities_wifi: false,
         image_url: "https://res.cloudinary.com/dnshrtqmv/image/upload/v1659962631/untrodden-pics/old_pale_rwsbbp.jpg",
         latitude:  53.22376473032904, 
-        longitude: -2.6849296015820943
+        longitude: -2.6849296015820943,
+        user_email: "untroddensoc@gmail.com"
     },
     {
         location_name: "Dunnottar Castle",
@@ -91,7 +92,8 @@ const locations = [
         amenities_wifi: false,
         image_url: "https://res.cloudinary.com/dnshrtqmv/image/upload/v1659962631/untrodden-pics/dunnottar_castle_fm0vft.jpg",
         latitude:  56.945395623234326, 
-        longitude: -2.1978927412285247
+        longitude: -2.1978927412285247,
+        user_email: "untroddensoc@gmail.com"
     },
     {
         location_name: "Symonds Yat",
@@ -138,7 +140,8 @@ const locations = [
         amenities_wifi: true,
         image_url: "https://res.cloudinary.com/dnshrtqmv/image/upload/v1659962631/untrodden-pics/symonds_yat_aymseo.jpg",
         latitude: 51.84645761540501,
-        longitude: -2.6461539072289497
+        longitude: -2.6461539072289497,
+        user_email: "untroddensoc@gmail.com"
     },
     {
         location_name: "Foggintor Quarry",
@@ -185,7 +188,8 @@ const locations = [
         amenities_wifi: false,
         image_url: "https://res.cloudinary.com/dnshrtqmv/image/upload/v1659962632/untrodden-pics/foggintor_quarry_gsjnkd.jpg",
         latitude: 50.54478107930167,
-        longitude: -4.024222293115765
+        longitude: -4.024222293115765,
+        user_email: "untroddensoc@gmail.com"
     },
     {
         location_name: "Solomon's Tower",
@@ -232,7 +236,8 @@ const locations = [
         amenities_wifi: false,
         image_url: "https://res.cloudinary.com/dnshrtqmv/image/upload/v1659962630/untrodden-pics/solomons_tower_umzn1w.jpg",
         latitude: 53.242709,
-        longitude: -1.920569
+        longitude: -1.920569,
+        user_email: "untroddensoc@gmail.com"
     },
     {
         location_name: "Marchmont Community Garden",
@@ -279,7 +284,8 @@ const locations = [
         amenities_wifi: false,
         image_url: "https://res.cloudinary.com/dnshrtqmv/image/upload/v1659962638/untrodden-pics/marchmont_garden_lkoh4o.jpg",
         latitude: 51.525098,
-        longitude: -0.124815
+        longitude: -0.124815,
+        user_email: "untroddensoc@gmail.com"
     },
     {
         location_name: "Harborne Walkway",
@@ -326,7 +332,8 @@ const locations = [
         amenities_wifi: false,
         image_url: "https://res.cloudinary.com/dnshrtqmv/image/upload/v1659962640/untrodden-pics/harborne_walkway_i8kuqh.jpg",
         latitude: 52.481151,
-        longitude: -1.943754
+        longitude: -1.943754,
+        user_email: "untroddensoc@gmail.com"
     },
     {
         location_name: "Horgabost Beach",
@@ -373,7 +380,8 @@ const locations = [
         amenities_wifi: false,
         image_url: "https://res.cloudinary.com/dnshrtqmv/image/upload/v1659962629/untrodden-pics/horgabost_beach_tox6yr.jpg",
         latitude: 57.86451376037841,
-        longitude: -6.985501206854588
+        longitude: -6.985501206854588,
+        user_email: "untroddensoc@gmail.com"
     },
     {
         location_name: "Radnor Castle Mound",
@@ -420,7 +428,8 @@ const locations = [
         amenities_wifi: false,
         image_url: "https://res.cloudinary.com/dnshrtqmv/image/upload/v1659962631/untrodden-pics/radnor_castle_mound_ft8poh.jpg",
         latitude: 52.24158189495012,
-        longitude: -3.1556172471674757
+        longitude: -3.1556172471674757,
+        user_email: "untroddensoc@gmail.com"
         
     },
     {
@@ -468,7 +477,8 @@ const locations = [
         amenities_wifi: false,
         image_url: "https://res.cloudinary.com/dnshrtqmv/image/upload/v1659962630/untrodden-pics/glenoe_waterfall_nqqgpg.jpg",
         latitude: 54.799441382524805,
-        longitude: -5.832403748657128
+        longitude: -5.832403748657128,
+        user_email: "untroddensoc@gmail.com"
     },
     {
         location_name: "Coney Island",
@@ -515,7 +525,8 @@ const locations = [
         amenities_wifi: false,
         image_url: "https://res.cloudinary.com/dnshrtqmv/image/upload/v1659962628/untrodden-pics/coney_island_w3gcu8.jpg",
         latitude: 54.51692011833266,
-        longitude: -6.550751071994922
+        longitude: -6.550751071994922,
+        user_email: "untroddensoc@gmail.com"
     },
     {
         location_name: "Swanage beach",
@@ -562,7 +573,8 @@ const locations = [
         amenities_wifi: false,
         image_url: "https://res.cloudinary.com/dnshrtqmv/image/upload/v1659962998/untrodden-pics/swanage_beach_ih9ppi.jpg",
         latitude: 52.489471,
-        longitude: -2.898575
+        longitude: -2.898575,
+        user_email: "untroddensoc@gmail.com"
     },
     {
         location_name: "Lickey Hills",
@@ -609,7 +621,8 @@ const locations = [
         amenities_wifi: false,
         image_url: "https://res.cloudinary.com/dnshrtqmv/image/upload/v1659962998/untrodden-pics/lickey_hills_y8xg8s.jpg",
         latitude: 52.489471,
-        longitude: -2.898575
+        longitude: -2.898575,
+        user_email: "untroddensoc@gmail.com"
     }
 ]
 

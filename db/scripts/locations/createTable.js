@@ -48,7 +48,8 @@ async function createTable() {
       amenities_wifi BOOLEAN,
       image_url TEXT,
       latitude DECIMAL,
-      longitude DECIMAL
+      longitude DECIMAL,
+      user_email TEXT
     );`
   );
 
