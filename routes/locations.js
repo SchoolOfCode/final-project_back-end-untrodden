@@ -90,7 +90,7 @@ const testLocationForPut = {
 router.delete('/:id', async function (req, res) {
   let locationId = req.params.id;
   let data = await deleteLocationById(locationId);
-  res.send('Deleted Successsfully');
+  res.json({ success: true, payload: data});
 });
 
 export default router;
