@@ -142,7 +142,8 @@ export async function postNewLocation(newLocation) {
     amenities_wifi,
     image_url,
     latitude,
-    longitude
+    longitude,
+    user_email
   ) 
   VALUES (
     $1,
@@ -189,12 +190,13 @@ export async function postNewLocation(newLocation) {
     ${newLocation.amenities_wifi},
     $7,
     ${newLocation.latitude},
-    ${newLocation.longitude}
+    ${newLocation.longitude},
+    $8
   ) RETURNING *;`;
 
   console.log(sqlString);
   
-  const response = await db.query(sqlString, [newLocation.location_name, newLocation.street, newLocation.town, newLocation.region, newLocation.postcode, newLocation.location_description, newLocation.image_url]);
+  const response = await db.query(sqlString, [newLocation.location_name, newLocation.street, newLocation.town, newLocation.region, newLocation.postcode, newLocation.location_description, newLocation.image_url, newLocation.user_email]);
   return response.rows;
 }
 
