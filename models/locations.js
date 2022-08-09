@@ -203,6 +203,7 @@ export async function postNewLocation(newLocation) {
 
 export async function deleteLocationById(id) {
   const response = await db.query(`DELETE FROM locations WHERE location_id = $1`, [id]);
+  return response.rows;
 }
 
 export async function putLocationById(locationId, updatedLocation) {
