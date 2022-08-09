@@ -1,5 +1,5 @@
 import express from "express";
-import { getAllLocationsOnlyTrue, getAllLocations, getLocationById, postNewLocation } from "../models/locations.js";
+import { getAllLocationsOnlyTrue, getAllLocations, getLocationById, postNewLocation, deleteLocationById } from "../models/locations.js";
 
 const router = express.Router();
 
@@ -31,6 +31,8 @@ router.post("/", async function(req, res, next) {
   const data = await postNewLocation(newLocation);
   res.status(201).json({ success: true, payload: data});
 })
+
+// router.patch("/:id")
 
 router.delete('/:id', async function (req, res) {
   let locationId = req.params.id;
