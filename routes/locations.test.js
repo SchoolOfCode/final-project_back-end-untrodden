@@ -68,3 +68,40 @@ describe("GET /locations/:id", () => {
         }
     );
 })
+
+describe("POST /locations", () => {
+    test(`
+        Sends a GET request to /locations/1
+        Checks if the response's HTTP status code is 200
+        Checks if the response's body is an object with the structure: { success: true, payload: [{ location }] }
+        Checks if the location object has the structure expectedLocation
+        `, async () => {
+            const response = await request(app).get("/locations/1").expect(200);
+            expect(response.body).toStrictEqual({ success: true, payload: expect.any(Array) });
+            expect(response.body.payload.length).toBe(1);
+            expect(response.body.payload[0]).toStrictEqual(expectedLocation);
+        }
+    );
+
+    test(`
+        Sends a GET request to /locations/10000
+        Checks if the response's HTTP status code is 404
+        Checks if the response's body is an object with the structure: { message: "No location found with that id." }
+        `, async () => {
+            const response = await request(app).get("/locations/10000").expect(404);
+            expect(response.body).toStrictEqual({ message: expect.any(String) });
+            expect(response.body.message).toBe("No location found with that id.");
+        }
+    );
+
+    test(`
+        Sends a GET request to /locations/a
+        Checks if the response's HTTP status code is 400
+        Checks if the response's body is an object with the structure: { message: "Endpoint must be an integer." }
+        `, async () => {
+            const response = await request(app).get("/locations/a").expect(400);
+            expect(response.body).toStrictEqual({ message: expect.any(String) });
+            expect(response.body.message).toBe("Endpoint must be an integer.");
+        }
+    );
+})
